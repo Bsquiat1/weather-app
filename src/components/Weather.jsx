@@ -66,14 +66,14 @@ function Weather() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white"> 
       <h1 className="text-4xl mb-4">
         Weather App<span>🌤</span>
       </h1>
       <div className="mb-6">
         <input
           type="text"
-          className="px-4 py-2 border rounded-md"
+          className="px-4 py-2 border rounded-md bg-gray-800 text-white" 
           placeholder="Search City.."
           name="query"
           value={query}
@@ -105,7 +105,7 @@ function Weather() {
               <sup className="text-xl">&deg;C</sup>
             </span>
           </div>
-           <div className="mb-2">
+          <div className="mb-2">
             <p>Humidity: {weather.data.main.humidity}%</p>
           </div>
           <div>
@@ -114,8 +114,6 @@ function Weather() {
             </p>
             <p>Wind Speed: {weather.data.wind.speed}m/s</p>
           </div>
-          
-         
         </div>
       )}
     </div>
