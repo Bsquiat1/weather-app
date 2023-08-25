@@ -26,9 +26,7 @@ To set up and run the Weather App, follow these steps:
 1. Clone this repository to your local machine:
 
 
-3 / 3
 
-Certainly! Here's an example of what your README.md file for the Weather App could look like. This file provides an overview of your project, how to set it up, and how to use the app.
 
 markdown
 Copy code
