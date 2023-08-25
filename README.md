@@ -1,36 +1,5 @@
 # Weather App
 
-The Weather App is a simple web application that allows users to search for weather information for a specific city. It fetches weather data from the OpenWeatherMap API and displays details such as temperature, weather condition, wind speed, and humidity.
-
-
-
-## Features
-
-- Search for weather information by entering a city name.
-- Display current temperature in Celsius.
-- Display weather condition (e.g., Clear, Clouds, Rain, etc.).
-- Display wind speed and humidity.
-- Responsive design for various screen sizes.
-
-## Prerequisites
-
-Before you begin, ensure you have met the following requirements:
-
-- You have a basic understanding of JavaScript and React.
-- You have Node.js and npm (Node Package Manager) installed on your machine.
-
-## Getting Started
-
-To set up and run the Weather App, follow these steps:
-
-1. Clone this repository to your local machine:
-
-
-
-
-markdown
-Copy code
-# Weather App
 
 The Weather App is a simple web application that allows users to search for weather information for a specific city. It fetches weather data from the OpenWeatherMap API and displays details such as temperature, weather condition, wind speed, and humidity.
 
