@@ -16,7 +16,7 @@ The Weather App is a simple web application that allows users to search for weat
 
 Before you begin, ensure you have met the following requirements:
 
-- You have a basic understanding of JavaScript and React.
+- You have a basic understanding of TypeScript and React.
 - You have Node.js and npm (Node Package Manager) installed on your machine.
 
 ## Getting Started
