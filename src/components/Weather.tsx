@@ -1,14 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, KeyboardEvent } from 'react';
 import axios from 'axios';
 
+interface WeatherData {
+  name: string;
+  sys: {
+    country: string;
+  };
+  main: {
+    temp: number;
+    humidity: number;
+  };
+  weather: {
+    icon: string;
+    description: string;
+  }[];
+  wind: {
+    speed: number;
+  };
+}
+
 function Weather() {
-  const [query, setQuery] = useState();
-  const [weather, setWeather] = useState({
-    data: {},
+  const [query, setQuery] = useState<string>('');
+  const [weather, setWeather] = useState<{ data: WeatherData; error: boolean; loading: boolean }>({
+    data: {} as WeatherData,
     error: false,
+    loading: false,
   });
 
-  const toDate = () => {
+  const toDate = (): string => {
     const months = [
       'January',
       'February',
@@ -38,9 +57,8 @@ function Weather() {
     }`;
     return date;
   };
-  
 
-  const search = async (event) => {
+  const search = async (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
       event.preventDefault();
       setQuery('');
@@ -49,16 +67,16 @@ function Weather() {
       const appid = '43e1d367bdc6abb6d842293a4f4be90e';
 
       try {
-        const response = await axios.get(url, {
+        const response = await axios.get<WeatherData>(url, {
           params: {
             q: query,
             units: 'metric',
             appid: appid,
           },
         });
-        setWeather({ data: response.data, error: false });
+        setWeather({ data: response.data, error: false, loading: false });
       } catch (error) {
-        setWeather({ ...weather, data: {}, error: true });
+        setWeather({ ...weather, data: {} as WeatherData, error: true });
         setQuery('');
         console.log('error', error);
       }
@@ -66,14 +84,14 @@ function Weather() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white"> 
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white">
       <h1 className="text-4xl mb-4">
         Weather App<span>🌤</span>
       </h1>
       <div className="mb-6">
         <input
           type="text"
-          className="px-4 py-2 border rounded-md bg-gray-800 text-white" 
+          className="px-4 py-2 border rounded-md bg-gray-800 text-white"
           placeholder="Search City.."
           name="query"
           value={query}
@@ -86,7 +104,7 @@ function Weather() {
         <p className="text-red-600 text-lg mb-4">Sorry, City not found</p>
       )}
 
-      {weather && weather.data && weather.data.main && (
+      {weather.data && weather.data.main && (
         <div className="text-center">
           <h2 className="text-2xl font-semibold mb-2">
             {weather.data.name}, <span>{weather.data.sys.country}</span>

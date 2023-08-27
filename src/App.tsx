@@ -1,8 +1,8 @@
 import React from 'react';
-import './App.css';
+import './index.css';
 import Weather from './components/Weather';
 
-function App() {
+function App(): JSX.Element {
   return (
     <div className="App">
       <Weather />
